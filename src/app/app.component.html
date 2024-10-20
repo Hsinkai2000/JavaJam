@@ -1,11 +1,7 @@
-<h1 class="text-xl font-bold underline">Hello world!</h1>
-<h1 class="ml-16">hello world!</h1>
-
-<form #form="">
-  <input type="text" class="bg-rose-400 text-slate-50" />
-  <input type="checkbox" class="rounded text-pink-500 ml-7" />
-  <input type="date" name="" id="" />
-  <input type="number" name="" id="" />
-  <input type="tel" name="" id="" />
-  <input type="time" name="" id="" />
-</form>
+<main class="w-100 bg-secondary flex flex-col min-h-screen">
+  <app-navbar></app-navbar>
+  <section class="content flex-grow mx-10 md:mx-32 mt-14 h-full">
+    <router-outlet></router-outlet>
+  </section>
+  <app-footer></app-footer>
+</main>

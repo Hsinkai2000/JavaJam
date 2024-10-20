@@ -1,38 +1,36 @@
 const colors = {
   primary: {
-    DEFAULT: "#556B2F", // Dark Olive Green
-    light: "#6B8E23", // Olive Drab
-    dark: "#3C4B1B", // Darker Olive Tone
+    DEFAULT: "#DFD7BF",
   },
   secondary: {
-    DEFAULT: "#8B4513", // Saddle Brown
-    light: "#A0522D", // Sienna
-    dark: "#5A2A10", // Dark Sienna
+    DEFAULT: "#F2EAD3",
   },
-  tertiary: {
-    DEFAULT: "#4682B4", // Steel Blue
-    light: "#87CEFA", // Light Sky Blue
-    dark: "#1C3B56", // Darker Steel Blue
+  dark: {
+    DEFAULT: "#3F2305",
   },
   ascent: {
-    DEFAULT: "#FF6347", // Tomato
-    light: "#FFA07A", // Light Salmon
-    dark: "#CC503A", // Darker Tomato
+    DEFAULT: "#AB886D",
+  },
+  white: {
+    DEFAULT: "#F5F5F5",
   },
   danger: {
-    DEFAULT: "#B22222", // Firebrick
-    light: "#DC143C", // Crimson
-    dark: "#8B1A1A", // Dark Firebrick
+    DEFAULT: "#8B1A1A",
+    light: "#DC143C",
+    dark: "#7A1B1B",
+    pastel: "#F08080",
   },
   warning: {
-    DEFAULT: "#FFD700", // Gold
-    light: "#FFFACD", // Lemon Chiffon
-    dark: "#B8860B", // Dark Goldenrod
+    DEFAULT: "#C68600",
+    light: "#FFD700",
+    dark: "#B8860B",
+    pastel: "#FFEDB2",
   },
   success: {
-    DEFAULT: "#228B22", // Forest Green
-    light: "#32CD32", // Lime Green
-    dark: "#006400", // Dark Green
+    DEFAULT: "#4E7F36",
+    light: "#8BBF3A",
+    dark: "#005700",
+    pastel: "#B8E1A8",
   },
 };
 

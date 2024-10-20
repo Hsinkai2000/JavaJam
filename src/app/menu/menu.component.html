@@ -1,0 +1,193 @@
+<section class="m-auto w-full flex flex-col items-center pb-20">
+  <h1 class="font-extrabold text-3xl mb-5">Cofee at JavaJam</h1>
+  <form
+    [formGroup]="menuForm"
+    class="relative overflow-x-auto sm:rounded-lg w-3/4"
+    (submit)="submitOrder()"
+  >
+    <div>
+      <table class="w-full text-sm text-left rtl:text-right text-dark">
+        <thead class="text-xs text-white uppercase bg-dark">
+          <tr>
+            <th scope="col" class="px-6 py-3">Product name</th>
+            <th scope="col" class="px-6 py-3">Desciption</th>
+            <th scope="col" class="px-6 py-3 ]">Quantity</th>
+            <th scope="col" class="px-6 py-3">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border border-collapse border-gray-700">
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-dark"
+            >
+              Just Java
+            </th>
+            <td class="px-6 py-4">
+              Regular house blend, decaffeinated coffee, or flavor of the day.
+              <br />
+              <strong
+                >Endless cup $
+                {{
+                  productList[0] ? (productList[0].price | number : "1.2-2") : 0
+                }}</strong
+              >
+              <input
+                type="number"
+                formControlName="justJava"
+                id=""
+                [value]="productList[0].price"
+                hidden
+              />
+            </td>
+            <td class="px-6 py-4">
+              <input
+                type="number"
+                formControlName="justJavaQuantity"
+                id="justJavaQuantity"
+                min="0"
+                [value]="0"
+                (input)="onQuantityChange()"
+              />
+            </td>
+            <td class="px-6 py-4">
+              <strong id="justJavaSubtotal"
+                >${{ justJavaSubtotal | number : "1.2-2" }}</strong
+              >
+            </td>
+          </tr>
+
+          <tr class="border border-collapse border-gray-700">
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-dark"
+            >
+              Cafe au Lait
+            </th>
+            <td class="px-6 py-4">
+              House blended coffee infused into a smooth, steamed milk.<br />
+
+              <label class="form-check-label menuLabel" for="">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="cafeAuLait"
+                  [value]="productList[1].price"
+                  checked
+                  (change)="onQuantityChange()"
+                />
+                Single ${{
+                  productList[1] ? (productList[1].price | number : "1.2-2") : 0
+                }}
+              </label>
+
+              <label class="form-check-label menuLabel" for="">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="cafeAuLait"
+                  [value]="productList[2].price"
+                  (change)="onQuantityChange()"
+                />
+                Double ${{
+                  productList[2] ? (productList[2].price | number : "1.2-2") : 0
+                }}
+              </label>
+            </td>
+            <td class="px-6 py-4">
+              <input
+                type="number"
+                id="cafeAuLaitQuantity"
+                formControlName="cafeAuLaitQuantity"
+                min="0"
+                [value]="0"
+                (input)="onQuantityChange()"
+              />
+            </td>
+            <td class="px-6 py-4">
+              <strong id="cafeAuLaitSubtotal"
+                >${{ cafeAuLaitSubtotal | number : "1.2-2" }}</strong
+              >
+            </td>
+          </tr>
+
+          <tr class="border border-collapse border-gray-700">
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium whitespace-nowrap text-dark"
+            >
+              Iced Cappuccino
+            </th>
+            <td class="px-6 py-4">
+              Sweetened espresso blended with icy-cold milk and served in a
+              chilled glass<br />
+              <label class="form-check-label menuLabel" for="">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="icedCappuccino"
+                  [value]="productList[3].price"
+                  (change)="onQuantityChange()"
+                  checked
+                />Single ${{
+                  productList[3] ? (productList[3].price | number : "1.2-2") : 0
+                }}
+              </label>
+
+              <label class="form-check-label menuLabel" for="">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="icedCappuccino"
+                  id=""
+                  [value]="productList[4].price"
+                  (change)="onQuantityChange()"
+                />Double ${{
+                  productList[4] ? (productList[4].price | number : "1.2-2") : 0
+                }}
+              </label>
+            </td>
+            <td class="px-6 py-4">
+              <input
+                type="number"
+                id="icedCappuccinoQuantity"
+                formControlName="icedCappuccinoQuantity"
+                min="0"
+                [value]="0"
+                (input)="onQuantityChange()"
+              />
+            </td>
+            <td class="px-6 py-4">
+              <strong id="icedCappuccinoSubtotal">
+                ${{ icedCappuccinoSubtotal | number : "1.2-2" }}
+              </strong>
+            </td>
+          </tr>
+          <tr class="border border-collapse border-gray-700">
+            <td></td>
+            <td></td>
+            <td class="pl-7 text-xl font-bold py-3">Total:</td>
+            <td class="pl-6 text-xl">
+              <strong>${{ total | number : "1.2-2" }}</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container">
+        <button
+          type="button"
+          class="text-dark bg-none border border-dark float-start hover:text-white hover:bg-dark focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 mt-5"
+          onclick="openReport()"
+        >
+          Open Daily Report
+        </button>
+        <button
+          type="submit"
+          class="text-white bg-ascent hover:bg-dark focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 float-end mb-2 mt-5"
+        >
+          Submit Order
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
