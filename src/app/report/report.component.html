@@ -1,0 +1,79 @@
+<section class="m-auto w-full flex flex-col items-center pb-20">
+  <h1 class="font-extrabold text-3xl mb-5">Daily Report</h1>
+  <div class="flex justify-center w-full">
+    <div
+      class="w-2/3 text-sm font-medium text-center text-dark border-b border-gray-200"
+    >
+      <div id="category" class="w-full">
+        <h1 class="text-3xl mb-5">Sales by Category</h1>
+        <table class="w-full border border-gray-800 border-collapse">
+          <thead>
+            <tr>
+              <th class="border border-gray-800 p-2">Product Category</th>
+              <th class="border border-gray-800 p-2">Quantity</th>
+              <th class="border border-gray-800 p-2">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of categories">
+              <td class="border border-gray-800 p-2 w-1/3">
+                {{ category.category }}
+              </td>
+              <td class="border border-gray-800 p-2 w-1/3">
+                {{ category.totalQuantity }}
+              </td>
+              <td class="border border-gray-800 p-2 w-1/3">
+                {{ category.totalSales }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="product" class="mt-5">
+        <h1 class="text-3xl mb-5">Sales by Product</h1>
+        <table class="w-full border border-gray-800 border-collapse">
+          <thead>
+            <tr>
+              <th class="border border-gray-800 p-2 w-1/3">Product Name</th>
+              <th class="border border-gray-800 p-2 w-1/3">Quantity</th>
+              <th class="border border-gray-800 p-2 w-1/3">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td class="border border-gray-800 p-2">
+                {{ product.name }}
+              </td>
+              <td class="border border-gray-800 p-2">
+                {{ product.totalQuantity }}
+              </td>
+
+              <td class="border border-gray-800 p-2">
+                {{ product.totalSales }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-12">
+        <h1 class="text-3xl mb-5">Most Popular Option</h1>
+        <p>
+          Best Selling Product:
+          <strong>{{ top[0].name }}</strong> from the
+          <strong>{{ top[0].category }}</strong>
+          category.
+        </p>
+        <p>
+          Total Quantity Sold:
+          <strong>{{ top[0].totalQuantity }}</strong>
+        </p>
+        <p>
+          Total Sales:
+          <strong>${{ top[0].totalSales.toFixed(2) }}</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

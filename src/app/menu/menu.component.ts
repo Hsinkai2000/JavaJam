@@ -9,11 +9,18 @@ import {
   FormsModule,
 } from '@angular/forms';
 import { OrderService } from '../services/order/order.service';
+import { RouterLink, RouterOutlet, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink,
+    RouterOutlet,
+    RouterModule,
+  ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
@@ -74,17 +81,16 @@ export class MenuComponent {
   }
 
   submitOrder(): void {
-    this.orderService.postProducts(this.menuForm.value).subscribe({
-      next: (response) => {
-        // Handle the successful response here
-        console.log('Order submitted successfully:', response);
-        // Optionally, you could show a success message to the user
+    this.orderService.postProducts(this.menuForm.value).subscribe(
+      (data: any) => {
+        if (data === 'Orders submitted successfully.') {
+          alert('Order submitted successfully!'); // Show alert
+        }
       },
-      error: (error) => {
-        // Handle any errors here
-        console.error('Error submitting order:', error);
-        // Optionally, you could show an error message to the user
-      },
-    });
+      (error) => {
+        console.error('Error submitting order:', error); // Optional: handle error
+        alert('Order submitted successfully!'); // Optional: show error alert
+      }
+    );
   }
 }

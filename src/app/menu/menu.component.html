@@ -26,12 +26,10 @@
             <td class="px-6 py-4">
               Regular house blend, decaffeinated coffee, or flavor of the day.
               <br />
-              <strong
-                >Endless cup $
-                {{
-                  productList[0] ? (productList[0].price | number : "1.2-2") : 0
-                }}</strong
-              >
+              Endless cup ${{
+                productList[0] ? (productList[0].price | number : "1.2-2") : 0
+              }}
+
               <input
                 type="number"
                 formControlName="justJava"
@@ -177,7 +175,7 @@
         <button
           type="button"
           class="text-dark bg-none border border-dark float-start hover:text-white hover:bg-dark focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 mt-5"
-          onclick="openReport()"
+          [routerLink]="['/report']"
         >
           Open Daily Report
         </button>
