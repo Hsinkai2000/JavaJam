@@ -50,6 +50,9 @@ export class MenuComponent {
       this.productList = productList;
       if (this.productList.length !== 0) {
         this.menuForm
+          .get('justJava')
+          ?.setValue(this.productList[0]?.price || 0);
+        this.menuForm
           .get('cafeAuLait')
           ?.setValue(this.productList[1]?.price || 0);
         this.menuForm

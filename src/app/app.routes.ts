@@ -4,6 +4,7 @@ import { MenuComponent } from './menu/menu.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { MusicComponent } from './music/music.component';
 import { ReportComponent } from './report/report.component';
+import { PriceupdateComponent } from './priceupdate/priceupdate.component';
 
 export const routes: Routes = [
   {
@@ -30,5 +31,10 @@ export const routes: Routes = [
     path: 'report',
     component: ReportComponent,
     title: 'Daily Report',
+  },
+  {
+    path: 'priceUpdate',
+    component: PriceupdateComponent,
+    title: 'Price Update',
   },
 ];
