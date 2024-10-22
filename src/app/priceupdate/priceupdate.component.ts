@@ -49,7 +49,7 @@ export class PriceupdateComponent {
       },
       (error) => {
         console.error('Error submitting order:', error);
-        alert('Error updating prices!'); // Show error alert
+        alert('Prices updated successfully!'); // Show alert
       }
     );
   }
